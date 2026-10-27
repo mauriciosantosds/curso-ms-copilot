@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A focused, local-first task list.">
+  <title>twdodos | Your daily focus</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell container py-4 py-lg-5">
+    <header class="d-flex align-items-start justify-content-between gap-3 mb-5">
+      <div>
+        <p class="eyebrow mb-2">Thursday, August 27</p>
+        <h1 class="display-title mb-2">Make room for<br><span>what matters.</span></h1>
+        <p class="text-muted mb-0">A little clarity goes a long way.</p>
+      </div>
+      <div class="brand-mark" aria-label="twdodos">tw<span>todos</span></div>
+    </header>
+
+    <section class="summary-strip row g-3 mb-4" aria-label="Task summary">
+      <div class="col-6 col-md-3"><div class="summary-item"><span class="summary-label">Total</span><strong id="total-count">0</strong></div></div>
+      <div class="col-6 col-md-3"><div class="summary-item"><span class="summary-label">In progress</span><strong id="active-count">0</strong></div></div>
+      <div class="col-6 col-md-3"><div class="summary-item"><span class="summary-label">Completed</span><strong id="completed-count">0</strong></div></div>
+      <div class="col-6 col-md-3"><div class="summary-item accent-item"><span class="summary-label">Progress</span><strong id="progress-count">0%</strong></div></div>
+    </section>
+
+    <section class="workspace-panel" aria-labelledby="tasks-heading">
+      <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+        <div>
+          <p class="section-kicker mb-1">Your list</p>
+          <h2 id="tasks-heading" class="section-title mb-0">Today’s focus</h2>
+        </div>
+        <div class="filter-tabs" role="group" aria-label="Filter tasks">
+          <button class="filter-tab active" data-filter="all" type="button">All</button>
+          <button class="filter-tab" data-filter="active" type="button">Open</button>
+          <button class="filter-tab" data-filter="completed" type="button">Done</button>
+        </div>
+      </div>
+
+      <form id="task-form" class="add-task-form input-group mb-4">
+        <label for="task-input" class="visually-hidden">Add a task</label>
+        <input id="task-input" class="form-control" type="text" placeholder="What needs your attention?" maxlength="120" autocomplete="off" required>
+        <button class="btn btn-primary px-4" type="submit">Add task <span aria-hidden="true">+</span></button>
+      </form>
+
+      <div id="task-list" class="task-list" aria-live="polite"></div>
+      <div id="empty-state" class="empty-state d-none">
+        <div class="empty-icon" aria-hidden="true">✓</div>
+        <h3 id="empty-title">Nothing here yet</h3>
+        <p id="empty-copy" class="text-muted mb-0">Add a task above and give your day a starting point.</p>
+      </div>
+
+      <div class="list-footer d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-2 mt-4">
+        <span id="footer-copy" class="text-muted small">Your tasks stay in this browser.</span>
+        <button id="clear-completed" class="btn btn-link btn-sm" type="button">Clear completed</button>
+      </div>
+    </section>
+    <footer class="text-center text-muted small mt-4">Small steps, visible progress.</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

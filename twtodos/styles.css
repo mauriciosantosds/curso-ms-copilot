@@ -1,0 +1,58 @@
+:root {
+  --ink: #17242b;
+  --muted: #718087;
+  --paper: #f7f8f4;
+  --panel: #ffffff;
+  --line: #e4e9e4;
+  --mint: #c9f2df;
+  --mint-strong: #2d8768;
+  --coral: #ff775f;
+  --yellow: #ffdf88;
+}
+
+* { box-sizing: border-box; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background: radial-gradient(circle at 10% 0%, #e2f5e7 0, transparent 28rem), var(--paper);
+  font-family: "Trebuchet MS", sans-serif;
+}
+.app-shell { max-width: 980px; }
+.eyebrow, .section-kicker, .summary-label { color: var(--mint-strong); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.display-title, .section-title, .brand-mark { font-family: "Trebuchet MS", sans-serif; font-weight: 700; }
+.display-title { font-size: clamp(2.7rem, 7vw, 5.25rem); line-height: .98; letter-spacing: -.04em; }
+.display-title span { color: var(--coral); }
+.brand-mark { color: var(--ink); font-size: 1.55rem; letter-spacing: -.08em; }
+.brand-mark span { color: var(--coral); }
+.summary-item { min-height: 96px; display: flex; flex-direction: column; justify-content: space-between; padding: 1rem 1.1rem; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.58); }
+.summary-item strong { font-family: "Trebuchet MS", sans-serif; font-size: 1.8rem; line-height: 1; }
+.accent-item { border-color: #b9e5d1; background: var(--mint); }
+.workspace-panel { padding: clamp(1.25rem, 4vw, 2.75rem); border: 1px solid var(--line); border-radius: 8px; background: var(--panel); box-shadow: 0 16px 45px rgba(30, 61, 46, .06); }
+.section-title { font-size: 1.75rem; letter-spacing: -.04em; }
+.filter-tabs { display: flex; gap: .3rem; padding: .25rem; border-radius: 999px; background: #f0f3ef; }
+.filter-tab { border: 0; border-radius: 999px; padding: .42rem .8rem; color: var(--muted); background: transparent; font: inherit; font-size: .85rem; }
+.filter-tab.active { color: var(--ink); background: var(--panel); box-shadow: 0 2px 7px rgba(23,36,43,.08); }
+.add-task-form .form-control { min-height: 50px; border-color: var(--line); background: #fbfcfa; }
+.add-task-form .form-control:focus { border-color: var(--mint-strong); box-shadow: 0 0 0 .2rem rgba(45,135,104,.13); }
+.btn-primary { border-color: var(--coral); background: var(--coral); }
+.btn-primary:hover, .btn-primary:focus { border-color: #e65e48; background: #e65e48; }
+.task-list { display: grid; gap: .7rem; }
+.task-row { display: flex; align-items: center; gap: .85rem; min-height: 62px; padding: .7rem .85rem; border: 1px solid var(--line); border-radius: 8px; animation: rise .25s ease-out both; }
+.task-row:hover { border-color: #c6d7cc; background: #fcfefc; }
+.task-check { flex: 0 0 auto; width: 22px; height: 22px; border: 2px solid #b6c2bc; border-radius: 50%; cursor: pointer; background: transparent; }
+.task-check:hover { border-color: var(--mint-strong); }
+.task-row.completed .task-check { border-color: var(--mint-strong); background: var(--mint-strong); }
+.task-row.completed .task-check::after { display: block; color: white; content: "✓"; font-size: .8rem; line-height: 18px; text-align: center; }
+.task-text { flex: 1; overflow-wrap: anywhere; }
+.task-row.completed .task-text { color: var(--muted); text-decoration: line-through; }
+.delete-task { border: 0; color: #a0aaa6; background: transparent; font-size: 1.3rem; line-height: 1; }
+.delete-task:hover { color: var(--coral); }
+.empty-state { padding: 2.5rem 1rem; text-align: center; }
+.empty-icon { display: grid; width: 48px; height: 48px; margin: 0 auto 1rem; place-items: center; border-radius: 50%; color: var(--mint-strong); background: var(--mint); font-size: 1.4rem; }
+.empty-state h3 { font-family: "Trebuchet MS", sans-serif; font-size: 1.15rem; }
+.list-footer { border-top: 1px solid var(--line); }
+.btn-link { color: var(--mint-strong); text-decoration: none; }
+.btn-link:hover { color: var(--coral); }
+@keyframes rise { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 575px) { .workspace-panel { margin-inline: -.25rem; } .add-task-form { display: flex; flex-wrap: wrap; gap: .5rem; } .add-task-form .form-control, .add-task-form .btn { width: 100%; border-radius: 6px !important; } }
